@@ -16,7 +16,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         canvas = findViewById(R.id.canvasV);
         view.setOnClickListener(this);
         view.setOnLongClickListener(this);
-        canvas.preparePaint();
     }
 
     @Override
@@ -26,6 +25,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public boolean onLongClick(View v) {
+        canvas.reset();
         return true;
     }
 }

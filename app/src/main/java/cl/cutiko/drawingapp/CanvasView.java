@@ -17,9 +17,10 @@ public class CanvasView extends View {
 
     public CanvasView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
+        preparePaint();
     }
 
-    public void preparePaint() {
+    private void preparePaint() {
         paint.setAntiAlias(true);
         paint.setColor(Color.BLACK);
         paint.setStyle(Paint.Style.STROKE);
@@ -30,6 +31,12 @@ public class CanvasView extends View {
     public void drawAline() {
         path.lineTo(100*counter, 100*counter);
         counter++;
+        invalidate();
+    }
+
+    public void reset() {
+        path.reset();
+        counter = 1;
         invalidate();
     }
 
